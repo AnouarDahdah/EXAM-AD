@@ -1,0 +1,52 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           |
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+
+// Include custom boundary condition for "inlet"
+#include "U_ex"
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (1 0 0);
+
+boundaryField
+{
+    inlet
+    {
+        type            calculated;
+        value           $internalField;
+    }
+	movingWall
+{
+    type            zeroGradient; // Use a recognized type like zeroGradient
+}
+
+fixedWalls
+{
+    type            zeroGradient;
+}
+    // Define boundary conditions for other patches as needed
+    // Example boundary condition for an "outlet" patch
+    outlet
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+
+    // Add more boundary conditions for other patches as required
+}
+
+// ************************************************************************* //

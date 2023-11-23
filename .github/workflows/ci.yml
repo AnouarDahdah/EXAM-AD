@@ -10,7 +10,11 @@ on:
 jobs:
   check_directories:
     runs-on: ubuntu-latest
-    container: openfoam/openfoam7-paraview56:latest
+    container:
+      image: openfoam/openfoam7-paraview56:latest 
+      options: --user root
+    
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2

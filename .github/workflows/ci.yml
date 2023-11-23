@@ -21,4 +21,5 @@ jobs:
 
     - name: Check for required OpenFOAM directories
       run: |
+       /opt/openfoam7/platforms/linux64GccDPInt32Opt/bin/icoFoam
         icoFoam

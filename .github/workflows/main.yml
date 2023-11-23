@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: OpenFOAM Continuous Integration
 
 on:
@@ -16,3 +17,31 @@ jobs:
         run: |
           wget -q -O - https://dl.openfoam.com/add-debian-repo.sh | sudo bash
           sudo apt-get install -qq openfoam2212-dev  
+=======
+# .github/workflows/ci.yml
+
+name: OpenFOAM Directory Check
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  check_directories:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Check for required OpenFOAM directories
+      run: |
+        if [ -d "./0" ] && [ -d "./constant" ] && [ -d "./system" ]; then
+          echo "Directories exist. Test Passed!"
+        else
+          echo "One or more directories are missing. Test Failed!"
+          exit 1  # Exit with a non-zero status to indicate failure
+        fi
+
+>>>>>>> orig1/main

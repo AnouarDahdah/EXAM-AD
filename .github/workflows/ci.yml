@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: openfoam/openfoam7-paraview56:latest 
-      options: --user root
+      options: --user root -e LD_LIBRARY_PATH="/opt/ThirdParty-7/platforms/linux64Gcc/gperftools-svn/lib:/opt/paraviewopenfoam56/lib/paraview-5.6:/opt/openfoam7/platforms/linux64GccDPInt32Opt/lib/openmpi-system:/opt/ThirdParty-7/platforms/linux64GccDPInt32/lib/openmpi-system:/usr/lib/x86_64-linux-gnu/openmpi/lib:/home/openfoam/platforms/linux64GccDPInt32Opt/lib:/opt/site/7/platforms/linux64GccDPInt32Opt/lib:/opt/openfoam7/platforms/linux64GccDPInt32Opt/lib:/opt/ThirdParty-7/platforms/linux64GccDPInt32/lib:/opt/openfoam7/platforms/linux64GccDPInt32Opt/lib/dummy" -e MPI_ARCH_PATH="/usr/lib/x86_64-linux-gnu/openmpi" -e PATH="/opt/ThirdParty-7/platforms/linux64Gcc/gperftools-svn/bin:/opt/paraviewopenfoam56/bin:/home/openfoam/platforms/linux64GccDPInt32Opt/bin:/opt/site/7/platforms/linux64GccDPInt32Opt/bin:/opt/openfoam7/platforms/linux64GccDPInt32Opt/bin:/opt/openfoam7/bin:/opt/openfoam7/wmake:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     
     
     steps:
